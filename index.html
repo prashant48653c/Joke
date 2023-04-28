@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joke Generator-API Service</title>
+</head>
+
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+    }
+
+    html {
+        font-size: 62.55%;
+    }
+
+    .container {
+        height: 100vh;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background-color: rgb(255, 188, 106);
+    }
+
+    .box {
+        margin: 3rem;
+        background-color: #615932;
+        color: white;
+        font-weight: 900;
+        font-size: 2rem;
+        padding: 2rem;
+        text-align: center;
+        gap: 1rem;
+        border-radius: 1rem;
+    }
+
+    .heading {
+        margin: 1rem 0;
+        text-decoration: underline;
+    }
+
+    .para {
+        background-color: #a1913e;
+    }
+
+    .btn {
+        display: inline-block;
+        border: none;
+        outline: none;
+        background-color: white;
+        padding: .7rem 2rem;
+        cursor: pointer;
+        text-align: center;
+        border-radius: .2rem;
+        margin: 1rem 0;
+        font-size: 1.4rem;
+        font-weight: 900;
+
+    }
+
+    .btn:hover {
+        background-color: antiquewhite;
+    }
+
+    /* media */
+
+    @media(max-width:500px){
+        html{
+            font-size: 54%;
+        }
+    }
+
+    @media(max-width:400px){
+        html{
+            font-size: 45%;
+        }
+    }
+    
+
+
+
+
+
+
+
+
+
+
+</style>
+
+
+
+
+
+
+
+<body>
+
+
+    <section class="container">
+        <article class="box">
+            <h1 class="heading">Your Jokes</h1>
+            <p class="para" id="jokes">Jokes will be displayed here!</p>
+            <button class="btn">Get Joke</button>
+        </article>
+    </section>
+
+
+
+
+
+
+    <script>
+
+        const jokeBox = document.getElementById('jokes')
+        const btn = document.querySelector('.btn')
+        const url = `https://v2.jokeapi.dev/joke/Any?blacklistFlags=religious,political&type=single`;
+
+        let realJoke = () => {
+            fetch(url)
+                .then(data => data.json())
+                .then(item => {
+                    jokeBox.innerHTML = (`${item . joke}`)
+                })
+        }
+    
+            btn.addEventListener('click',realJoke)
+        
+       
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+
+
+
+</html>
